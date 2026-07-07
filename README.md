@@ -35,7 +35,7 @@ That's exactly the structure of this project: `BGR.asc` → `LDO.asc` → `BGR_L
 | 5 | Normal-ramp startup | V1 = PWL(0 0 1m 2.5), `.tran 1.2m` | Smooth monotonic rise to final V_ref, no overshoot, no oscillation, no glitch through the 2V knee |
 | 6 | Power-cycling restart | V1 = PWL(0 0 5u 2.5 80u 2.5 85u 0 90u 0 95u 2.5 200u 2.5), `.tran 200u` | V_ref recovers cleanly after each supply dip, not just first power-up |
 | 7 | Startup across temperature corners | `.ic` + `.temp` at −40°C / 27°C / 125°C, `.tran 200u` | Settles correctly in all three corners |
-| 8 | PSRR | V1 = PWL ramp + AC 1, `.ac dec 10 1 1e6` | See screenshot for the sweep (The bandgap's current sources are simple, uncascoded PMOS mirrors referenced directly off Vdd, so they have low output impedance, therefore any supply ripple directly modulates the branch currents, and since Vref is just those currents times a resistor, Vref follows Vdd almost 1:1. That's why PSRR is near 0 dB instead of the -30 to -40 dB you'd expect from a well-designed core |
+| 8 | PSRR | V1 = PWL ramp + AC 1, `.ac dec 10 1 1e6` | See screenshot for the sweep (The bandgap's current sources are simple, uncascoded PMOS mirrors referenced directly off Vdd, so they have low output impedance, therefore any supply ripple directly modulates the branch currents, and since Vref is just those currents times a resistor, Vref follows Vdd almost 1:1. That's why PSRR is near 0 dB instead of the -30 to -40 dB you'd expect from a well-designed core) |
 
 ---
 
